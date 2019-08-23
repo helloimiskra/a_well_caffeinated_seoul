@@ -1,4 +1,4 @@
-class CafesController < Sinatra::Base
+class CafesController < ApplicationController
 
     get '/cafes' do
         @cafes = Cafe.all
