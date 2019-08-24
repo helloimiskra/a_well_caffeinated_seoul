@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_08_23_082023) do
     t.string "dog_friendly"
     t.string "outlets"
     t.text "review"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

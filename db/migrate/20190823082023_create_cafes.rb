@@ -8,6 +8,7 @@ class CreateCafes < ActiveRecord::Migration[5.2]
       t.string :dog_friendly
       t.string :outlets
       t.text :review
+      t.integer :user_id
     end
   end
 end
