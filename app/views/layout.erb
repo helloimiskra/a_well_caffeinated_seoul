@@ -13,25 +13,21 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <ul class="nav nav-pills">
-
-
   <%if logged_in?%>
 
-
-<li class="nav-item">
+  <li class="nav-item">
     <a class="nav-link active" href="/cafes">Cafes</a><br>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/cafes/new">Review</a><br>
+    <a class="nav-link" href="/cafes/new">New Review</a><br>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="/logout">Log Out</a><br>
   </li>
   
-  <p> Welcome, <%=current_user.username%></p>
+  <p> Welcome, <%=current_user.username%>!</p>
+
   <%else%>
-
-
   <li class="nav-item">
     <a class="nav-link active" href="/">Home</a><br>
   </li>
@@ -41,16 +37,21 @@
   <li class="nav-item">
     <a class="nav-link" href="/login">Log In</a><br>
   </li>
-</ul>
- 
+  </ul>
   <%end%>
  </nav>
-  <div class="container">
-  <%= yield %>
-</div>
+
+<div class="card bg-dark text-white">
+  <img src="https://i.ibb.co/NS9wTd6/coffee-background.jpg" class="card-img" alt="coffee_background">
+  <div class="card-img-overlay">
+    <h4 class="font-weight-light" card-title >A Well Caffeinated Seoul</h4>
+    <div class="p-3 mb-2 bg-light text-dark">
+    <p class="card-text"><%=yield%></p>
+    </div>
+  </div>
 </div>
 
-    
+
 
   </body>
   </head>

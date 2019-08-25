@@ -41,6 +41,6 @@ class CafesController < ApplicationController
     delete '/cafes/:id/delete' do
         @cafe = Cafe.find_by_id(params[:id])
         @cafe.delete
-        redirect to '/cafes'
+        redirect "/cafes"
       end
 end

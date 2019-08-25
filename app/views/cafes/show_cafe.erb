@@ -1,16 +1,15 @@
-#shows individual cafe & its information & allows user to delete
 
-Name: <%= @cafe.name %><br>
-Location: <%= @cafe.location %><br>
-Parking? (If yes, is it valet?): <%= @cafe.parking %><br>
-Price of an Americano?: <%= @cafe.americano_price %><br>
-Dog Friendly? (If yes, are dogs allowed inside or on the terrace?):<%= @cafe.dog_friendly %><br>
-Outlets Available?: <%= @cafe.outlets %><br>
-Review: <%= @cafe.review %><br>
+<h4>Cafe Name:</h4><p class ="lead"><%= @cafe.name %></p>
+<h4>Location:</h4> <p class ="lead"> <%= @cafe.location %></p>
+<h4>Parking? (If yes, is it valet?):</h4> <p class ="lead"><%= @cafe.parking %></p>
+<h4>Price of an Americano?:</h4> <p class ="lead"> <%= @cafe.americano_price %></p>
+<h4>Dog Friendly? (If yes, are dogs allowed inside or on the terrace?): </h2> <p class ="lead"> <%= @cafe.dog_friendly %></p>
+<h4>Outlets Available?: </h4> <p class ="lead"><%= @cafe.outlets %></p>
+<h4>Review: </h4><p class ="lead"> <%= @cafe.review %></p>
 
-<h3><a href="/cafes">Click here</a> to go back to the main cafe page or <a href="/logout">click here</a> to log out.<h3>
+<p><a href="/cafes">Click here</a> to go back to the main cafe page or <a href="/logout">click here</a> to log out.<p>
 
 <form method="post" action="/cafes/<%= @cafe.id %>">
   <input type="hidden" name="_method" value="delete" />
-  <input type="submit" name = "delete"/>
+  <button type="submit" value="delete">Delete Review</button>
 </form>

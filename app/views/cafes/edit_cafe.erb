@@ -1,5 +1,3 @@
-#allows user to edit cafe
-
 <form action='/cafes/<%= @cafe.id %>%' method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
   Cafe Name: <input type="text" name="name"><br><br>
