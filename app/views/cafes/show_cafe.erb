@@ -7,9 +7,11 @@
 <h4>Outlets Available?: </h4> <p class ="lead"><%= @cafe.outlets %></p>
 <h4>Review: </h4><p class ="lead"> <%= @cafe.review %></p>
 
-<p><a href="/cafes">Click here</a> to go back to the main cafe page or <a href="/logout">click here</a> to log out.<p>
 
-<form method="post" action="/cafes/<%= @cafe.id %>">
+ <a href="/cafes/<%=@cafe.id%>/edit">Edit Review</a>
+ <form method="post" action="/cafes/<%= @cafe.id %>">
   <input type="hidden" name="_method" value="delete" />
   <button type="submit" value="delete">Delete Review</button>
 </form>
+
+<p><a href="/cafes">Click here</a> to go back to the main cafe page or <a href="/logout">click here</a> to log out.<p>

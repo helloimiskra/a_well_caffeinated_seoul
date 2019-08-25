@@ -5,7 +5,7 @@ class UsersController < ApplicationController
        end
    
        get '/signup' do
-           erb :'/users/create_user'
+           erb :'/users/new'
        end
    
        post '/signup' do
@@ -50,8 +50,5 @@ class UsersController < ApplicationController
        end
    
        
-
-
-
 
 end
