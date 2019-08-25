@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <head>
+    <title>A Well Caffeinated Seoul</title>
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  </head>
+ <body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <ul class="nav nav-pills">
+
+
+  <%if logged_in?%>
+
+
+<li class="nav-item">
+    <a class="nav-link active" href="/cafes">Cafes</a><br>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/cafes/new">Review</a><br>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/logout">Log Out</a><br>
+  </li>
+  
+  <p> Welcome, <%=current_user.username%></p>
+  <%else%>
+
+
+  <li class="nav-item">
+    <a class="nav-link active" href="/">Home</a><br>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/signup">Sign Up</a><br>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/login">Log In</a><br>
+  </li>
+</ul>
+ 
+  <%end%>
+ </nav>
+  <div class="container">
+  <%= yield %>
+</div>
+</div>
+
+    
+
+  </body>
+  </head>
+</html>

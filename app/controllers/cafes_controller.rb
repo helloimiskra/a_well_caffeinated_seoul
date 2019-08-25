@@ -2,7 +2,7 @@ class CafesController < ApplicationController
 
     get '/cafes' do
         @cafes = Cafe.all
-        erb :index
+        erb :'cafes/all'
     end
 
 
@@ -35,7 +35,7 @@ class CafesController < ApplicationController
         @cafe.outlets = params[:outlets]
         @cafe.rewiew = params[:review]
         @cafe.save
-        redirect to "cafes/#{@cafe.id}"
+        redirect to "/cafes/#{@cafe.id}"
     end
 
     delete '/cafes/:id/delete' do

@@ -1,11 +1,11 @@
-require_relative './config/environment'
+require './config/environment'
 #if ActiveRecord::Migrator.needs_migration?
  # raise 'Migrations are pending. Run `rake db:migrate` to resolve the issue.'
 #end
+
+
 use Rack::MethodOverride
+
 use UsersController
 use CafesController
-# use OtherController1
-# use OtherController2
-# use OtherController3
 run ApplicationController

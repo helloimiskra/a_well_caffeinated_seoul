@@ -1,0 +1,13 @@
+<h1>Cafes Reviewed:</h1>
+<li>
+<% @cafes.each |cafe| do %>
+Name: <%= cafe.name %><br>
+Location: <%= cafe.location %><br>
+Parking? (If yes, is it valet?): <%= cafe.parking %><br>
+Price of an Americano?: <%= cafe.americano_price %><br>
+Dog Friendly? (If yes, are dogs allowed inside or on the terrace?):<%= cafe.dog_friendly %><br>
+Outlets Available?: <%= cafe.outlets %><br>
+Review: <%= cafe.review %><br>
+</li>
+
+
