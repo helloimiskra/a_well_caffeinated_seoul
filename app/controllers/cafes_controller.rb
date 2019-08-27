@@ -33,7 +33,7 @@ class CafesController < ApplicationController
         @cafe.americano_price = params[:americano_price]
         @cafe.dog_friendly = params[:dog_friendly]
         @cafe.outlets = params[:outlets]
-        @cafe.rewiew = params[:review]
+        @cafe.review = params[:review]
         @cafe.save
         redirect to "/cafes/#{@cafe.id}"
     end

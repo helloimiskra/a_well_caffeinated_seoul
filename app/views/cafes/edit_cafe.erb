@@ -1,13 +1,13 @@
 <p>Edit <%=@cafe.name%></p>
 
-<form action='/cafes/<%= @cafe.id %>%' method="post">
+<form action='/cafes/<%= @cafe.id %>' method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
-  Cafe Name: <input type="text" name="name"><br><br>
-  Location:<input type="text" name="location" ><br><br>
-  Parking? (If yes, is it valet?): <input type="text" name="parking"><br><br>
-  Price of an Americano?: <input type="text" name="americano_price" ><br><br>
-  Dog Friendly?: <input type="text" name="dog_friendly" ><br><br>
-  Outlets?: <input type="text" name="outlets" ><br><br>
-  Review: <textarea name="review"></textarea><br><br>
+  Cafe Name: <input type="text" name="name" value="<%=@cafe.name %>"><br><br>
+  Location:<input type="text" name="location" value="<%=@cafe.location %>"> <br><br>
+  Parking? (If yes, is it valet?): <input type="text" name="parking" value="<%=@cafe.parking %>"><br><br>
+  Price of an Americano?: <input type="text" name="americano_price" value="<%=@cafe.americano_price %>"> <br><br>
+  Dog Friendly?: <input type="text" name="dog_friendly" value="<%=@cafe.dog_friendly %>"><br><br>
+  Outlets?: <input type="text" name="outlets" value="<%=@cafe.outlets %>"><br><br>
+  Review: <textarea name="review" value="<%= @cafe.review %>"></textarea><br><br>
   <input type="submit" value="Update">
   </form>
