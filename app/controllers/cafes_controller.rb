@@ -4,13 +4,13 @@ class CafesController < ApplicationController
         redirect_if_not_logged_in
         @user = current_user
         @cafes = Cafe.all
-        erb :'cafes/all'
+        erb :'cafes/index'
     end
 
 
     get '/cafes/new' do
         redirect_if_not_logged_in
-        erb :'cafes/create_cafe'
+        erb :'cafes/new'
     end
 
     post '/cafes' do
@@ -24,13 +24,13 @@ class CafesController < ApplicationController
     get '/cafes/:id' do
         redirect_if_not_logged_in
         @cafe = Cafe.find_by_id(params[:id])
-        erb :'cafes/show_cafe'
+        erb :'cafes/show'
     end
 
     get '/cafes/:id/edit' do
         redirect_if_not_logged_in
         @cafe = Cafe.find_by_id(params[:id])
-        erb :'cafes/edit_cafe'
+        erb :'cafes/edit'
     end
 
     patch '/cafes/:id' do
