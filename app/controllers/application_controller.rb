@@ -9,12 +9,16 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "awesomecafes"
   end
   
+  get '/error' do
+    erb :error
+  end
 
   helpers do
 
     def redirect_if_not_logged_in
-      if !logged_in
-        erb :'users/error'
+      if !logged_in?
+        redirect '/error'
+      end
     end
 
     def logged_in?

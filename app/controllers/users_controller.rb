@@ -9,7 +9,11 @@ class UsersController < ApplicationController
        end
    
        post '/signup' do
-           @user = User.create(username: params[:username], email: params[:email], password: params[:password])
+            if taken?(params[:username])
+                redirect '/username-error'
+            else
+                @user = User.create(username: params[:username], email: params[:email], password: params[:password])
+            end
    
            if @user.save
                redirect '/login'
@@ -21,6 +25,7 @@ class UsersController < ApplicationController
        get '/login' do
             if !session[:user_id]
             erb :'/users/login'
+            end
        end
    
        post '/login' do
@@ -49,7 +54,16 @@ class UsersController < ApplicationController
             redirect '/'
         end
        end
-   
        
+       get '/username-error' do
+        erb :'/users/username_error'
+       end
+       
+       def taken?(username)
+        !User.find_by(username: username).nil?
+       end
+        
+    
+
 
 end

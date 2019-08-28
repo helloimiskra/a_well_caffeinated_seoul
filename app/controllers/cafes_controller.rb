@@ -15,6 +15,8 @@ class CafesController < ApplicationController
     post '/cafes' do
         redirect_if_not_logged_in
         @cafe = Cafe.create(params)
+        @cafe.user_id = current_user.id
+        @cafe.save
         redirect to "/cafes/#{@cafe.id}"
     end
 

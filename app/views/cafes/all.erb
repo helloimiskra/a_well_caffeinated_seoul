@@ -1,7 +1,7 @@
 <h1>Cafes Reviewed:</h1>
 
-<% current_user.cafes.each do |cafe| %>
-<h4>Cafe Name:</h4> <p class ="lead"><%= cafe.name %></p><br>
+<% @user.cafes.each do |cafe| %>
+<h4>Cafe Name:</h4> <a href="/cafes/<%=cafe.id%>"><p class ="lead"><%= cafe.name %></p></a><br>
 <h4>Location: </h4> <p class ="lead"><%= cafe.location %></p><br>
 <h4>Parking? (If yes, is it valet?): </h4> <p class ="lead"><%= cafe.parking %></p><br>
 <h4>Price of an Americano?: </h4> <p class ="lead"><%= cafe.americano_price %></p><br>
@@ -10,5 +10,6 @@
 <h4>Review:</h4> <p class ="lead"><%= cafe.review %></p><br><br>
 <%end%>
 
+<h4>Click <a href="/cafes/new">here</a> to write a new review.</h4>
 
 
