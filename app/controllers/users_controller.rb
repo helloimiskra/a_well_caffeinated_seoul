@@ -33,7 +33,7 @@ class UsersController < ApplicationController
    
            if @user && @user.authenticate(params[:password])
                session[:user_id] = @user.id
-               redirect '/cafes/new'
+               redirect '/cafes'
            else
                redirect '/login'
            end
