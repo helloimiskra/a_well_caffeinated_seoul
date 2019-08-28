@@ -19,7 +19,8 @@ class UsersController < ApplicationController
        end
    
        get '/login' do
-           erb :'/users/login'
+            if !session[:user_id]
+            erb :'/users/login'
        end
    
        post '/login' do

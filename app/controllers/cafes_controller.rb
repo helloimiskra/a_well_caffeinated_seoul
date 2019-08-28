@@ -1,31 +1,37 @@
 class CafesController < ApplicationController
 
     get '/cafes' do
+        redirect_if_not_logged_in
         @cafes = Cafe.all
         erb :'cafes/all'
     end
 
 
     get '/cafes/new' do
+        redirect_if_not_logged_in
         erb :'cafes/create_cafe'
     end
 
     post '/cafes' do
+        redirect_if_not_logged_in
         @cafe = Cafe.create(params)
         redirect to "/cafes/#{@cafe.id}"
     end
 
     get '/cafes/:id' do
+        redirect_if_not_logged_in
         @cafe = Cafe.find_by_id(params[:id])
         erb :'cafes/show_cafe'
     end
 
     get '/cafes/:id/edit' do
+        redirect_if_not_logged_in
         @cafe = Cafe.find_by_id(params[:id])
         erb :'cafes/edit_cafe'
     end
 
     patch '/cafes/:id' do
+        redirect_if_not_logged_in
         @cafe = Cafe.find_by_id(params[:id])
         @cafe.name = params[:name]
         @cafe.location = params[:location]
@@ -39,6 +45,7 @@ class CafesController < ApplicationController
     end
 
     delete '/cafes/:id/delete' do
+        redirect_if_not_logged_in
         @cafe = Cafe.find_by_id(params[:id])
         @cafe.delete
         redirect "/cafes"

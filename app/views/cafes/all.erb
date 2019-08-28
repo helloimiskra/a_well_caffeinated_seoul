@@ -1,13 +1,13 @@
 <h1>Cafes Reviewed:</h1>
 
 <% current_user.cafes.each do |cafe| %>
-Name: <%= cafe.name %><br>
-Location: <%= cafe.location %><br>
-Parking? (If yes, is it valet?): <%= cafe.parking %><br>
-Price of an Americano?: <%= cafe.americano_price %><br>
-Dog Friendly? (If yes, are dogs allowed inside or on the terrace?):<%= cafe.dog_friendly %><br>
-Outlets Available?: <%= cafe.outlets %><br>
-Review: <%= cafe.review %><br>
+<h4>Cafe Name:</h4> <p class ="lead"><%= cafe.name %></p><br>
+<h4>Location: </h4> <p class ="lead"><%= cafe.location %></p><br>
+<h4>Parking? (If yes, is it valet?): </h4> <p class ="lead"><%= cafe.parking %></p><br>
+<h4>Price of an Americano?: </h4> <p class ="lead"><%= cafe.americano_price %></p><br>
+<h4>Dog Friendly? (If yes, are dogs allowed inside or on the terrace?): </h4><p class ="lead"><%= cafe.dog_friendly %></p><br>
+<h4>Outlets Available?:</h4> <p class ="lead"><%= cafe.outlets %></p><br>
+<h4>Review:</h4> <p class ="lead"><%= cafe.review %></p><br><br>
 <%end%>
 
 
