@@ -34,8 +34,9 @@ class ApplicationController < Sinatra::Base
     end
 
     def own_cafe?(cafe)
-      current_user == cafe.user
+      redirect_if_not_logged_in
+      redirect '/error' if !cafe
+      redirect '/error' if current_user != cafe.user
     end
-
   end
 end
