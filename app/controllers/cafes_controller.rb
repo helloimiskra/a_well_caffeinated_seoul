@@ -50,7 +50,9 @@ class CafesController < ApplicationController
     delete '/cafes/:id' do
         redirect_if_not_logged_in
         @cafe = Cafe.find_by_id(params[:id])
-        @cafe.delete
-        redirect to '/cafes'
+        if @cafe
+            @cafe.delete
+            redirect to '/cafes'
+        end
       end
 end

@@ -24,10 +24,18 @@ class ApplicationController < Sinatra::Base
     def logged_in?
         !!session[:user_id]
     end
+
     def current_user
         User.find(session[:user_id])
     end
 
+    def authorize
+      current_user
+    end
+
+    def own_cafe?(cafe)
+      current_user == cafe.user
+    end
 
   end
 end
