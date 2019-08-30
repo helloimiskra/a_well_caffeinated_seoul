@@ -3,7 +3,6 @@ class CafesController < ApplicationController
     get '/cafes' do
         redirect_if_not_logged_in
         @user = current_user
-        @cafes = Cafe.all
         erb :'cafes/index'
     end
 
