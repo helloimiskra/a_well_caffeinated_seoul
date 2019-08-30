@@ -1,6 +1,12 @@
 <h1>Cafes Reviewed:</h1>
 
-<% @user.cafes.each do |cafe| %>
+<form action = '/cafes/search' method = "post">
+    <input type = "text" name = "search">
+    <input type = "submit" name = "submit" value = "Search">
+</form>
+<br>
+
+<% @cafes.each do |cafe| %>
 <h4>Cafe Name:</h4> <a href="/cafes/<%=cafe.id%>"><p class ="lead"><%= cafe.name %></p></a>
 <h4>Location: </h4> <p class ="lead"><%= cafe.location %></p>
 <h4>Parking? (If yes, is it valet?): </h4> <p class ="lead"><%= cafe.parking %></p>

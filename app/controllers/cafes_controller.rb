@@ -2,7 +2,7 @@ class CafesController < ApplicationController
 
     get '/cafes' do
         redirect_if_not_logged_in
-        @user = current_user
+        @cafes = current_user.cafes
         erb :'cafes/index'
     end
 
@@ -15,7 +15,7 @@ class CafesController < ApplicationController
     post '/cafes' do
         redirect_if_not_logged_in
         @cafe = Cafe.create(params)
-        @cafe.user_id = current_user.id
+        @cafe.user = current_user
         @cafe.save
         redirect to "/cafes/#{@cafe.id}"
     end
@@ -23,6 +23,7 @@ class CafesController < ApplicationController
     get '/cafes/:id' do
         redirect_if_not_logged_in
         @cafe = Cafe.find_by_id(params[:id])
+
         own_cafe?(@cafe)
         erb :'cafes/show'
     end
@@ -30,6 +31,7 @@ class CafesController < ApplicationController
     get '/cafes/:id/edit' do
         redirect_if_not_logged_in
         @cafe = Cafe.find_by_id(params[:id])
+
         own_cafe?(@cafe)
         erb :'cafes/edit'
     end
@@ -57,5 +59,11 @@ class CafesController < ApplicationController
             @cafe.delete
             redirect to '/cafes'
         end
-      end
+    end
+
+    post '/cafes/search' do
+        @cafes = Cafe.where("name LIKE ?", "%#{params[:search]}%").where(user: current_user)
+        erb :'/cafes/index'
+    end
+
 end
