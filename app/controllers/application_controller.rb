@@ -29,10 +29,6 @@ class ApplicationController < Sinatra::Base
         User.find(session[:user_id])
     end
 
-    def authorize
-      current_user
-    end
-
     def own_cafe?(cafe)
       redirect_if_not_logged_in
       redirect '/error' if !cafe
